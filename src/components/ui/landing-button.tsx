@@ -15,8 +15,8 @@ export const LandingButton = ({ children, variant = "primary", className, onClic
       variant="outline"
       className={cn(
         "rounded-lg py-4 text-base font-semibold backdrop-blur-md",
-        "transition-all duration-300 hover:-translate-y-0.5 border border-border",
-        "hover:shadow-lg hover:shadow-primary/10",
+        "transition-all duration-300  border border-border",
+        "hover:shadow-lg hover:shadow-primary/15",
         "min-w-fit",
         variant === "primary" ? "bg-background/80 hover:bg-background text-foreground" : "bg-background/50 hover:bg-background/80 text-foreground",
         className

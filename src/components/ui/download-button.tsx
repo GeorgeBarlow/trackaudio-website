@@ -98,9 +98,8 @@ export function DownloadButton({ currentOS, onPlatformSelect }: DownloadButtonPr
     "rounded-lg px-6 py-4 text-base font-semibold backdrop-blur-md",
     "transition-all duration-300 border border-border",
     "bg-background/80 hover:bg-white text-foreground",
-    "group-hover:-translate-y-0.5",
     "group-hover:bg-background/80",
-    "hover:shadow-lg"
+    "hover:shadow-lg hover:shadow-primary/15"
   );
 
   return (
@@ -111,7 +110,7 @@ export function DownloadButton({ currentOS, onPlatformSelect }: DownloadButtonPr
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className={cn(commonButtonStyles, "rounded-l-none px-2 h-[36px]")}>
+          <Button variant="outline" className={cn(commonButtonStyles, "rounded-l-none px-2")}>
             <ChevronDown className="h-4 w-4 opacity-75" />
           </Button>
         </DropdownMenuTrigger>
