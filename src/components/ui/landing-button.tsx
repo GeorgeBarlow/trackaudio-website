@@ -12,12 +12,13 @@ export const LandingButton = ({ children, variant = "primary", className, onClic
   return (
     <Button
       onClick={onClick}
+      variant="outline"
       className={cn(
         "rounded-lg py-4 text-base font-semibold backdrop-blur-md",
-        "transition-all duration-300 hover:-translate-y-0.5 border border-white/10",
-        "hover:shadow-lg hover:shadow-blue-500/10",
-        "min-w-fit ", // Auto width by default, fixed in sm
-        variant === "primary" ? "bg-white/5 hover:bg-white/10 text-blue-100" : "bg-white/5 hover:bg-white/10 text-blue-100",
+        "transition-all duration-300 hover:-translate-y-0.5 border border-border",
+        "hover:shadow-lg hover:shadow-primary/10",
+        "min-w-fit",
+        variant === "primary" ? "bg-background/80 hover:bg-background text-foreground" : "bg-background/50 hover:bg-background/80 text-foreground",
         className
       )}
     >

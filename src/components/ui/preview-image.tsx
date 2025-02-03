@@ -9,7 +9,7 @@ export function PreviewImage() {
         width={0}
         height={0}
         sizes="(max-width: 768px) 85vw, (max-width: 1013px) 90vw, 95vw"
-        className="mx-auto rounded-lg shadow-lg w-full h-auto"
+        className="mx-auto w-full h-auto"
         priority
       />
     </div>

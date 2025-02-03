@@ -10,6 +10,7 @@ import { FAQModal } from "@/components/ui/faq-modal";
 import { LandingButton } from "@/components/ui/landing-button";
 import { remark } from "remark";
 import html from "remark-html";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 interface Release {
   tag_name: string;
   assets: Array<{
@@ -87,34 +88,38 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0b0c11]">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blue-100 dark:bg-black ">
       <div className="absolute inset-0">
         <AirspaceDisplay />
       </div>
-
+      <ThemeToggle /> {/* Add theme toggle */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-8">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-8 ">
           <PageTitle title="Track Audio" description="A next generation Audio-For-VATSIM ATC Client for macOS, Linux and Windows." />
 
+          {/* Main container - stacked below sm, row above sm */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
+            {/* Download button */}
             <DownloadButton platform={platform} onPlatformSelect={handlePlatformSelect} />
 
-            <LandingButton onClick={() => setShowFAQ(true)}>
-              <span className="opacity-90 hover:opacity-100 transition-opacity">FAQ</span>
-            </LandingButton>
+            {/* Landing buttons wrapper - always in a row */}
+            <div className="flex flex-row items-center gap-3 sm:gap-4">
+              <LandingButton onClick={() => setShowFAQ(true)}>
+                <span className="opacity-90 hover:opacity-100 transition-opacity">FAQ</span>
+              </LandingButton>
 
-            <LandingButton onClick={() => (window.location.href = "https://github.com/pierr3/TrackAudio")}>
-              <span className="opacity-90 hover:opacity-100 transition-opacity">Docs</span>
-            </LandingButton>
+              <LandingButton onClick={() => (window.location.href = "https://github.com/pierr3/TrackAudio")}>
+                <span className="opacity-90 hover:opacity-100 transition-opacity">Docs</span>
+              </LandingButton>
 
-            <LandingButton onClick={() => (window.location.href = "https://github.com/pierr3/TrackAudio")}>
-              <span className="opacity-90 hover:opacity-100 transition-opacity">GitHub</span>
-            </LandingButton>
+              <LandingButton onClick={() => (window.location.href = "https://github.com/pierr3/TrackAudio")}>
+                <span className="opacity-90 hover:opacity-100 transition-opacity">GitHub</span>
+              </LandingButton>
+            </div>
           </div>
           <PreviewImage />
         </motion.div>
       </div>
-
       <FAQModal open={showFAQ} onOpenChange={setShowFAQ} content={faqContent} />
     </div>
   );

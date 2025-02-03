@@ -48,10 +48,10 @@ export function DownloadButton({ platform, onPlatformSelect }: DownloadButtonPro
 
   const commonButtonStyles = cn(
     "rounded-lg px-6 py-4 text-base font-semibold backdrop-blur-md",
-    "transition-all duration-300 border border-white/10",
-    "bg-white/5 text-blue-100",
+    "transition-all duration-300 border border-border",
+    "bg-background/80 hover:bg-white text-foreground",
     "group-hover:-translate-y-0.5",
-    "group-hover:bg-white/10",
+    "group-hover:bg-background/80",
     "hover:shadow-lg"
   );
 
@@ -63,7 +63,7 @@ export function DownloadButton({ platform, onPlatformSelect }: DownloadButtonPro
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className={cn(commonButtonStyles, "rounded-l-none px-2", "border-l-white/20")}>
+          <Button variant="outline" className={cn(commonButtonStyles, "rounded-l-none px-2 h-[36px]")}>
             <ChevronDown className="h-4 w-4 opacity-75" />
           </Button>
         </DropdownMenuTrigger>

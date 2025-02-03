@@ -15,13 +15,13 @@ export function PageTitle({ title, description }: PageTitleProps) {
           <div className="flex items-center justify-center">
             <Image src="/icon.png" alt="Track Audio Icon" width={150} height={150} className="w-auto h-[40px] md:h-[52px] lg:h-[75px] object-contain " />
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-100 to-blue-100 leading-none">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl l g:text-7xl font-bold tracking-tighter  bg-clip-text text-gray-700 leading-none dark:text-blue-100 ">
             {title}
           </h1>
         </div>
       </div>
 
-      <p className="text-base sm:text-lg md:text-lg text-blue-100 font-semibold tracking-tighter max-w-2xl mx-auto">{description}</p>
+      <p className="text-base sm:text-lg md:text-lg text-gray-700 dark:text-blue-100 font-semibold tracking-tighter max-w-2xl mx-auto ">{description}</p>
     </motion.div>
   );
 }
