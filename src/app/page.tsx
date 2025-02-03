@@ -11,6 +11,8 @@ import { LandingButton } from "@/components/ui/landing-button";
 import { remark } from "remark";
 import html from "remark-html";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { useOperatingSystem } from "@/hooks/OSDetector";
+
 interface Release {
   tag_name: string;
   assets: Array<{
@@ -20,24 +22,12 @@ interface Release {
 }
 
 export default function Home() {
-  const [platform, setPlatform] = useState<PlatformType>("windows");
+  const platform = useOperatingSystem();
   const [releases, setReleases] = useState<Release | null>(null);
   const [showFAQ, setShowFAQ] = useState(false);
   const [faqContent, setFaqContent] = useState("");
 
   useEffect(() => {
-    const detectPlatform = () => {
-      const os = window.navigator.platform.toLowerCase();
-      if (os.includes("win")) return "windows";
-      if (os.includes("mac")) {
-        return window.navigator.userAgent.includes("arm") ? "silicon" : "intel";
-      }
-      if (os.includes("linux")) return "linux-deb";
-      return "windows";
-    };
-
-    setPlatform(detectPlatform() as PlatformType);
-
     const fetchReleases = async () => {
       try {
         const response = await fetch("https://api.github.com/repos/pierr3/TrackAudio/releases/latest");
@@ -88,21 +78,19 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blue-100 dark:bg-black ">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blue-100 dark:bg-black">
       <div className="absolute inset-0">
         <AirspaceDisplay />
       </div>
-      <ThemeToggle /> {/* Add theme toggle */}
+      <ThemeToggle />
+
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-8 ">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-8">
           <PageTitle title="Track Audio" description="A next generation Audio-For-VATSIM ATC Client for macOS, Linux and Windows." />
 
-          {/* Main container - stacked below sm, row above sm */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
-            {/* Download button */}
-            <DownloadButton platform={platform} onPlatformSelect={handlePlatformSelect} />
+            <DownloadButton currentOS={platform} onPlatformSelect={handlePlatformSelect} />
 
-            {/* Landing buttons wrapper - always in a row */}
             <div className="flex flex-row items-center gap-3 sm:gap-4">
               <LandingButton onClick={() => setShowFAQ(true)}>
                 <span className="opacity-90 hover:opacity-100 transition-opacity">FAQ</span>
