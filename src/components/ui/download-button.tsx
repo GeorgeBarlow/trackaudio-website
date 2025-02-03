@@ -56,7 +56,7 @@ export function DownloadButton({ currentOS, onPlatformSelect }: DownloadButtonPr
 
   const getCurrentPlatformLabel = () => {
     if (currentOS === "unknown") {
-      return "GitHub Release";
+      return "Download for Windows";
     }
 
     for (const group of Object.values(platformGroups)) {
@@ -68,7 +68,7 @@ export function DownloadButton({ currentOS, onPlatformSelect }: DownloadButtonPr
 
   const handleMainButtonClick = () => {
     if (currentOS === "unknown") {
-      window.location.href = "https://github.com/pierr3/TrackAudio/releases/latest";
+      onPlatformSelect("windows");
       return;
     }
     onPlatformSelect(platform);
