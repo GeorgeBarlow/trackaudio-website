@@ -3,7 +3,6 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu";
 
 export type PlatformType = "windows" | "macos-silicon" | "macos-intel" | "linux-deb" | "linux-snap" | "linux-appimage";
 
