@@ -18,15 +18,7 @@ interface Release {
   }>;
 }
 
-interface LandingPageProps {
-  title?: string;
-  description?: string;
-}
-
-export default function LandingPage({
-  title = "Track Audio",
-  description = "A next generation Audio-For-VATSIM ATC Client for macOS, Linux and Windows.",
-}: LandingPageProps) {
+export default function Home() {
   const [platform, setPlatform] = useState<PlatformType>("windows");
   const [releases, setReleases] = useState<Release | null>(null);
   const [showFAQ, setShowFAQ] = useState(false);
@@ -102,7 +94,7 @@ export default function LandingPage({
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-6">
-          <PageTitle title={title} description={description} />
+          <PageTitle title="Track Audio" description="A next generation Audio-For-VATSIM ATC Client for macOS, Linux and Windows." />
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
             <DownloadButton platform={platform} onPlatformSelect={handlePlatformSelect} />
