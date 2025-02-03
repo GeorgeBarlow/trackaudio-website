@@ -77,8 +77,16 @@ export default function Home() {
     window.location.href = asset?.browser_download_url || "https://github.com/pierr3/TrackAudio/releases";
   };
 
+  const VersionDisplay = ({ version }: { version: string | null }) => {
+    return (
+      <div className="absolute bottom-4 left-0 right-0 text-center">
+        <span className="font-sans text-xs text-foreground/60">{version ? `v${version.replace("v", "")}` : "Loading..."}</span>
+      </div>
+    );
+  };
+
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blue-100 dark:bg-black">
+    <div className=" relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blue-100 dark:bg-black">
       <div className="absolute inset-0">
         <AirspaceDisplay />
       </div>
@@ -109,6 +117,7 @@ export default function Home() {
         </motion.div>
       </div>
       <FAQModal open={showFAQ} onOpenChange={setShowFAQ} content={faqContent} />
+      <VersionDisplay version={releases?.tag_name ?? null} />
     </div>
   );
 }
