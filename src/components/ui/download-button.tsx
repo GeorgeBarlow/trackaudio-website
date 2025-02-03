@@ -115,14 +115,14 @@ export function DownloadButton({ currentOS, onPlatformSelect }: DownloadButtonPr
             <ChevronDown className="h-4 w-4 opacity-75" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="bg-[#151515] border border-white/10 rounded-lg w-[220px] py-1">
+        <DropdownMenuContent align="end" className="bg-background border border-white/10 rounded-lg w-[220px] py-1">
           {getOrderedPlatformGroups().map(([key, group], index) => (
             <div key={key}>
-              {index > 0 && <DropdownMenuSeparator className="bg-white/10" />}
+              {index > 0 && <DropdownMenuSeparator />}
               {group.items.map((item) => (
                 <DropdownMenuItem
                   key={item.id}
-                  className="text-white hover:text-white text-sm font-normal hover:bg-white/10 transition-colors cursor-pointer px-3 py-2"
+                  className=" text-sm font-normal hover:bg-white/10 transition-colors cursor-pointer px-3 py-2"
                   onSelect={() => onPlatformSelect(item.id as PlatformType)}
                 >
                   {item.label}
