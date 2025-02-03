@@ -16,14 +16,14 @@ export const platformGroups = {
   macos: {
     label: "macOS",
     items: [
-      { id: "macos-silicon", label: "Apple Silicon (ARM)" },
-      { id: "macos-intel", label: "Apple Intel (x64)" },
+      { id: "macos-silicon", label: "macOS (Apple Silicon)" },
+      { id: "macos-intel", label: "macOS (Intel)" },
     ],
   },
   linux: {
     label: "Linux",
     items: [
-      { id: "linux-deb", label: "Debian/Ubuntu (.deb)" },
+      { id: "linux-deb", label: "Debian / Ubuntu (.deb)" },
       { id: "linux-snap", label: "Snap Store" },
       { id: "linux-appimage", label: "AppImage" },
     ],
@@ -104,7 +104,7 @@ export function DownloadButton({ currentOS, onPlatformSelect }: DownloadButtonPr
 
   return (
     <div className="group flex items-center">
-      <Button onClick={handleMainButtonClick} className={cn(commonButtonStyles, "rounded-r-none", "min-w-[120px] sm:min-w-[180px]", "border-r-0")}>
+      <Button onClick={handleMainButtonClick} className={cn(commonButtonStyles, "rounded-r-none", "min-w-[120px]", "border-r-0")}>
         <span className="opacity-90 transition-opacity">{getCurrentPlatformLabel()}</span>
       </Button>
 
