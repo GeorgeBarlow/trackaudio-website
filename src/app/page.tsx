@@ -96,7 +96,7 @@ export default function Home() {
                 <span className="opacity-90 hover:opacity-100 transition-opacity">FAQ</span>
               </LandingButton>
 
-              <LandingButton onClick={() => (window.location.href = "https://github.com/pierr3/TrackAudio")}>
+              <LandingButton onClick={() => (window.location.href = "https://github.com/pierr3/TrackAudio/wiki")}>
                 <span className="opacity-90 hover:opacity-100 transition-opacity">Docs</span>
               </LandingButton>
 
