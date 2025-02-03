@@ -42,7 +42,7 @@ export default function Home() {
       try {
         const readme = await fetch("https://raw.githubusercontent.com/pierr3/TrackAudio/main/README.md");
         const text = await readme.text();
-        const faqStart = text.indexOf("## FAQ");
+        const faqStart = text.indexOf("## FAQ") + "## FAQ".length;
         const faqEnd = text.indexOf("## Installation", faqStart);
         const faqSection = text.slice(faqStart, faqEnd);
 

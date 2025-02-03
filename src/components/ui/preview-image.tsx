@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function PreviewImage() {
   return (
-    <div className="w-full max-w-[85%] md:max-w-[90%] lg:max-w-[85%] mx-auto">
+    <div className="w-full max-w-[85%] md:max-w-[90%] lg:max-w-[85%] mx-auto ">
       <Image
         src="/app_screenshot_feb2025-transformed.png"
         alt="Track Audio app preview"
