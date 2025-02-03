@@ -93,7 +93,7 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-6">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="max-w-6xl mx-auto space-y-6 md:space-y-8">
           <PageTitle title="Track Audio" description="A next generation Audio-For-VATSIM ATC Client for macOS, Linux and Windows." />
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
